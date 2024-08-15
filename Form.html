@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Form Sign Up</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+       <!-- class registration-form untuk dipangggil di style.css -->
+    <div class="registration-form">  
+        <h2>REGISTRASI</h2>
+
+        <!-- Kode form -->
+        <form id="passwordForm" action="Berhasil.html" method="get">  <!-- id passwordform untuk javascript agar berjalan pada formnya -->
+            <div class="form-group">
+                <label for="nama">Nama Lengkap:</label>
+                <input type="text" id="nama" name="nama" required />
+                <!--  label nama lengkap membuat teks sebagai label diatas form pengisian dan required berfungsi menentukan kolom input harus diisi sebelum mengirimkan form-->
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required /> <!-- required pada email ini nantinya berfungsi agar email sesuai format yang terdapat @. -->
+            </div>
+            <div class="form-group">
+                <label for="password">Password:</label>
+                <!-- minlength memastikan bahwa password harus terdiri dari minimal 8 karakter.
+                 pattern untuk menentukan pola yang harus dipenuhi oleh input.
+                ^ dan $ menandai awal dan akhir dari string.
+                (?=.*[0-9]) memastikan setidaknya ada satu angka dalam password.
+                .{8,} memastikan panjang minimal password adalah 8 karakter.
+                title untuk memberikan pesan kepada pengguna ketika mereka tidak memenuhi syarat password. -->
+                <input
+                    type="password"
+                    id="password"
+                    name="password"
+                    required
+                    minlength="8" 
+                    pattern="^(?=.*[0-9]).{8,}$"
+                    title="Password harus minimal 8 karakter dan terdapat setidaknya satu angka!"
+                />
+            </div>
+            <div class="form-group">
+                <label for="confirm-password">Konfirmasi Password:</label>
+                <input
+                    type="password"
+                    id="confirm-password"
+                    name="confirm-password"
+                    required
+                />
+            </div>
+
+            <!-- sebuah peringatan warna merah yang nantinya akan muncul di bawah form konfirmasi password saat password dinyatakan tidak cocok.  -->
+            <div id="error-message" class="alert" style="display: none;">Password tidak cocok.</div>
+
+            <!-- checkbox yang harus di centang sebelum mengirimkan -->
+            <div class="form-group terms">
+                <input type="checkbox" id="checkbox" name="checkbox" required />
+                <label for="checkbox">Saya menyetujui <a href="#">syarat & ketentuan</a></label>
+            </div>
+            <!-- button pengguna untuk mengirimkan form -->
+            <div class="form-group">
+                <button type="submit">DAFTAR!</button>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            document.getElementById("passwordForm").addEventListener("submit", function(event) {
+                event.preventDefault();
+
+                // dapatkan nilai dari input password dan konfirmasi password
+                const password = document.getElementById("password").value;
+                const confirmPassword = document.getElementById("confirm-password").value;
+
+                // memeriksa apakah password dan konfirmasi password telah sesuai
+                if (password !== confirmPassword) {
+                    // jika tidak sesuai, menampilkan pesan kesalahan
+                    document.getElementById("error-message").style.display = "block";
+                } else {
+                    // jika sesuai, sembunyikan pesan kesalahan dan lanjutkan pengiriman form
+                    document.getElementById("error-message").style.display = "none";
+                    // mengirim form
+                    this.submit(); 
+                }
+            });
+        });
+    </script>
+</body>
+</html>

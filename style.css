@@ -1,0 +1,90 @@
+body {
+    font-family: Arial, sans-serif;
+    background-image: url('img/background.JPEG');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    margin: 40px auto;
+}
+
+.registration-form {
+    background-color: #fff;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 400px;
+    
+}
+
+.registration-form h2 {
+    margin-top: 35px;
+    margin-bottom: 50px;
+    text-align: center;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="password"] {
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+
+.form-group input[type="checkbox"] {
+    margin-right: 10px;
+}
+
+.form-group.terms label {
+    display: inline-block;
+    font-weight: normal;
+}
+
+.form-group button {
+    width: 80%; 
+    height: 45px;
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    padding: 10px; 
+    background-image: url('img/background.JPEG'); 
+    background-size: cover; 
+    background-repeat: no-repeat; 
+    background-position: center; 
+    color: white; 
+    border: none; 
+    border-radius: 30px; 
+    cursor: pointer; 
+    font-size: 20px; 
+    font-weight: bold; 
+    text-transform: uppercase;
+    margin: 0 auto;
+    margin-top: 50px; 
+    margin-bottom: 50px; 
+}
+
+.form-group button:hover {
+    opacity: 0.9; 
+}
+
+.alert {
+    color: red;
+    font-weight: bold;
+}
